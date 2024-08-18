@@ -1,22 +1,9 @@
-import { useEffect, useState } from "react";
-import { getAllCards } from "../api/cardAPI";
 import SingleCard from "./SingleCard";
+import useCard from "../hooks/useCard";
 
 const CardList = () => {
-    const [cards, setCards] = useState([]);
+    const [cards] = useCard();
 
-  useEffect(() => {
-    async function fetchCards() {
-      try {
-        const data = await getAllCards();
-        setCards(data);
-      } catch (error) {
-        console.error('Error fetching cards:', error);
-      }
-    }
-
-    fetchCards();
-  }, [cards]);
     return (
         <div className="flex items-center justify-center my-10 md:my-20 p-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16">

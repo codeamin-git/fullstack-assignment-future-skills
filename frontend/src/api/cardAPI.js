@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://backend-two-eosin-20.vercel.app';
+const API_URL = import.meta.env.VITE_API_URL
 
 export const createCard = async (cardData) => {
   const response = await axios.post(`${API_URL}/cards`, cardData);

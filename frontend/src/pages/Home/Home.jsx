@@ -1,5 +1,6 @@
 import CardList from "../../components/CardList";
 import AppBar from "../../shared/AppBar";
+import Footer from "../../shared/Footer";
 import HowWeHelp from "./HowWeHelp";
 
 
@@ -9,6 +10,7 @@ const Home = () => {
             <AppBar />
             <HowWeHelp />
             <CardList />
+            <Footer />
         </div>
     );
 };
