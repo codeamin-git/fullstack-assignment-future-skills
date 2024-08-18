@@ -16,10 +16,10 @@ const CardList = () => {
     }
 
     fetchCards();
-  }, []);
+  }, [cards]);
     return (
         <div className="flex items-center justify-center my-10 md:my-20 p-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16">
             {
                 cards?.map((card) => (
                     <SingleCard
