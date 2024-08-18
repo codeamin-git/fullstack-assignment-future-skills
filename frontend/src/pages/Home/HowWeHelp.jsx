@@ -1,6 +1,12 @@
+import { useState } from "react";
 import { GoArrowRight } from "react-icons/go";
 
-const HowWeHelp = () => {
+const HowWeHelp = ({onSearch}) => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = () => {
+        onSearch(searchTerm)
+    }
     return (
         <div>
             {/* search input */}
@@ -11,8 +17,10 @@ const HowWeHelp = () => {
         type="text"
         placeholder="Search"
         className="pl-4 pr-10 py-2 w-full bg-white text-black outline-none"
+        value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
     />
-    <button className="absolute right-2 text-black">
+    <button onClick={handleSearch} className="absolute right-2 text-black">
     <GoArrowRight />
     </button>
 </div>

@@ -1,8 +1,17 @@
 import SingleCard from "./SingleCard";
-import useCard from "../hooks/useCard";
+import useCards from "../hooks/useCards";
+import PropTypes from 'prop-types'
 
-const CardList = () => {
-    const [cards] = useCard();
+const CardList = ({searchTerm}) => {
+    const { cards, loading, error } = useCards(searchTerm);
+
+    if (loading) {
+        return <p>Loading cards...</p>;
+      }
+    
+      if (error) {
+        return <p>{error}</p>;
+      }
 
     return (
         <div className="flex items-center justify-center my-10 md:my-20 p-2">
@@ -22,3 +31,7 @@ const CardList = () => {
 };
 
 export default CardList;
+
+CardList.propTypes = {
+    searchTerm: PropTypes.string
+}

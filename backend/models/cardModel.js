@@ -14,7 +14,9 @@ async function getAllCards() {
 
 // Get a specific card by title
 async function getCardByTitle(title) {
-  return await collection().findOne({ title });
+  return await collection().findOne({
+    title: { $regex: new RegExp(title, 'i') }
+  });;
 }
 
 module.exports = { createCard, getAllCards, getCardByTitle };
