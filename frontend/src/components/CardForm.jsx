@@ -17,7 +17,7 @@ const CardForm = () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Your work has been saved",
+        title: "Your request has been received!",
         showConfirmButton: false,
         timer: 1500
       });
