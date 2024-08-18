@@ -2,11 +2,18 @@ const express = require('express');
 const { connectDB } = require('./config/db');
 const cardRoutes = require('./routes/cardRoutes');
 require('dotenv').config();
+const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const corsOptions = {
+  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  credentials: true,
+  optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions))
 app.use(express.json());
 
 app.get('/', async(req, res) => res.send('Welcome to Abstract Help Center!'))
